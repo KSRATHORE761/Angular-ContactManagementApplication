@@ -1,0 +1,36 @@
+{
+    "contacts":[
+        {
+            "id":"1",
+            "name":"Kuldeep",
+            "company":"Infy",
+            "email":"abc@gmail.com",
+            "title":"Software Developer",
+            "mobile":"9898989898",
+            "photo":"https://avatars.githubusercontent.com/u/29653843?v=4",
+            "groupId":"2"
+        }
+    ],
+    "groups":[
+        {
+            "id":"1",
+            "name":"Colleague"
+        },
+        {
+            "id":"2",
+            "name":"Family"
+        },
+        {
+            "id":"3",
+            "name":"Friends"
+        },
+        {
+            "id":"4",
+            "name":"Service"
+        },
+        {
+            "id":"5",
+            "name":"Social"
+        }
+    ]
+}

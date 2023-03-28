@@ -5,3 +5,13 @@ body{
     font-family: 'Fredoka','sans-serif';
     background-color: #cce7e8 !important;
 }
+
+.contact__img{
+    width:100px;
+    border-radius:50%;
+}
+
+.contact__img_details{
+    width:150px;
+    border-radius:50%;
+}
