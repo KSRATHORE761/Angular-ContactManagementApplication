@@ -10,7 +10,8 @@
           temporibus, odit pariatur velit adipisci exercitationem quis blanditiis!
           Quia eum mollitia cum velit eveniet doloremque provident iusto, quo
           reiciendis consectetur nemo repellendus error eius, libero accusantium
-          odit voluptates corporis similique voluptas? Assumenda nemo adipisci ex
+          odit voluptates corporis simil
+          ique voluptas? Assumenda nemo adipisci ex
           perspiciatis eos fugiat incidunt laborum, ratione tenetur ipsam
           repellendus voluptate aspernatur dolorem reprehenderit rem tempora atque
           impedit reiciendis error. Vel ipsum possimus eveniet, et harum ut magni
@@ -19,45 +20,63 @@
     </div>
   </div>
 </div>
-
+<!-- Condition Based Spinner and error message code here -->
+<!-- Condition based loading -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <!-- Display Error Messages -->
+  <div *ngIf="!loading && errorMessage">
+    <div class="conatiner">
+      <div class="row">
+        <div class="col">
+          <p class="h4 text-danger fw-bold">
+            {{ errorMessage }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- Contact Form -->
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form>
+            <form (submit)="addContact()">
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" [(ngModel)]="contact.name" name="name" class="form-control" placeholder="Name" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Photo Url">
+                    <input type="text" [(ngModel)]="contact.photo" name="photo"  class="form-control" placeholder="Photo Url" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Email">
+                    <input type="text" [(ngModel)]="contact.email" name="email"  class="form-control" placeholder="Email" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Mobile No">
+                    <input type="text" [(ngModel)]="contact.mobile" name="mobile"  class="form-control" placeholder="Mobile No" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Company">
+                    <input type="text" [(ngModel)]="contact.company" name="company"  class="form-control" placeholder="Company" >
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Title">
+                    <input type="text" [(ngModel)]="contact.title" name="title"  class="form-control" placeholder="Title" >
                 </div>
                 <div class="mb-2">
-                    <select class="form-control">
-                        <option value="">Select a Group</option>
+                    <select [(ngModel)]="contact.groupId" name="groupId"  class="form-control" *ngIf="groups.length>0">
+                        <option value="0">Select a Group</option>
+                        <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
                     </select>
                 </div>
                 <div class="mb-2">
-                    <input type="sumbit" class="btn btn-success" value="Create">
+                    <button type="submit" class="btn btn-success" >Save</button>
                     <a routerLink="/" class="btn btn-warning ms-2">
                         Close
                     </a>
-                </div>
+                </div> 
             </form>
         </div>
-        <div class="col-sm-4">
-            <img class="contact__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkhIltql05digBdfoIvARXSqLDwYOALKS5bdO0HLwSNACwnD0IoXLg-eRGlEl69p5cBy0&usqp=CAU" alt="">
+        
+        <div class="col-sm-4" *ngIf="contact.photo">
+            <img class="contact__img" [src]="contact.photo" alt="user">
         </div>
     </div>
 </div>

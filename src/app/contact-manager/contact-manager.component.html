@@ -31,32 +31,49 @@
     </div>
   </div>
 </div>
+<!-- Condition based loading -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+<!-- Display Error Messages -->
+<div *ngIf="!loading && errorMessage">
+<div class="conatiner">
+  <div class="row">
+    <div class="col">
+      <p class="h4 text-danger fw-bold">
+        {{errorMessage}}
+      </p>
+    </div>
+  </div>
+</div>
+</div>
 <!-- Card Design -->
-<div class="container mt-4">
+<div class="container mt-4" *ngIf="!loading && contacts.length > 0">
     <div class="row">
-        <div class="col-md-6">
-            <div class="card list-group-item-success shadow-lg">
+        <div *ngFor="let contact of contacts" class="col-md-6">
+            <div class="card list-group-item-success shadow-lg my-2">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-sm-4">
-                          <img class="contact__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkhIltql05digBdfoIvARXSqLDwYOALKS5bdO0HLwSNACwnD0IoXLg-eRGlEl69p5cBy0&usqp=CAU" alt="">
+                          <img class="contact__img" 
+                          [src]="contact.photo" alt="user">
                         </div>
                         <div class="col-sm-7">
                           <ul class="list-group">
                             <li class="list-group-item">
-                              Name: <span class="fw-bold">Trump</span>
+                              Name: <span class="fw-bold">{{contact.name}}</span>
                             </li>
                             <li class="list-group-item">
-                              Email: <span class="fw-bold">trump@gmail.com</span>
+                              Email: <span class="fw-bold">{{contact.email}}</span>
                             </li>
                             <li class="list-group-item">
-                              Name: <span class="fw-bold">9999999999</span>
+                              Name: <span class="fw-bold">{{contact.mobile}}</span>
                             </li>
                           </ul>
                         </div>
                         <div class="col-sm-1
                         d-flex flex-column justify-content-center align-items-center">
-                          <a routerLink="/contacts/view/:contactId" class="btn btn-warning">
+                          <a routerLink="/contacts/view/{{contact.id}}" class="btn btn-warning">
                             <i class="fa fa-eye"></i>
                           </a>
                           <a routerLink="/contacts/edit/:contactId" class="btn btn-success">
