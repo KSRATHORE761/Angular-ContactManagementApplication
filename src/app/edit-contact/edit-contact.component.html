@@ -24,40 +24,41 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <form>
+      <form (submit)="updateContactDetails()">
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Name" />
+          <input type="text" class="form-control" [(ngModel)]="contact.name" [value]="contact.name" name="name" placeholder="Name" />
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Photo Url" />
+          <input type="text" class="form-control" [(ngModel)]="contact.photo" [value]="contact.photo" name="photo"  placeholder="Photo Url" />
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Email" />
+          <input type="text" class="form-control" [(ngModel)]="contact.email" [value]="contact.email" name="email" placeholder="Email" />
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Mobile No" />
+          <input type="text" class="form-control" [(ngModel)]="contact.mobile" [value]="contact.mobile" name="mobile" placeholder="Mobile No" />
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Company" />
+          <input type="text" class="form-control" [(ngModel)]="contact.company" [value]="contact.company" name="company" placeholder="Company" />
         </div>
         <div class="mb-2">
-          <input type="text" class="form-control" placeholder="Title" />
+          <input type="text" class="form-control" [(ngModel)]="contact.title" [value]="contact.title" name="title" placeholder="Title" />
         </div>
         <div class="mb-2">
-          <select class="form-control">
+          <select class="form-control" [(ngModel)]="contact.groupId" [value]="contact.groupId" name="groupId">
             <option value="">Select a Group</option>
+            <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
           </select>
         </div>
         <div class="mb-2">
-          <input type="sumbit" class="btn btn-primary" value="Update" />
-          <a routerLink="/" class="btn btn-warning ms-2"> Close </a>
+          <button type="sumbit" class="btn btn-primary">Update</button>
+          <a routerLink="/" class="btn btn-warning ms-2">Close</a>
         </div>
       </form>
     </div>
     <div class="col-sm-4">
       <img
         class="contact__img"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkhIltql05digBdfoIvARXSqLDwYOALKS5bdO0HLwSNACwnD0IoXLg-eRGlEl69p5cBy0&usqp=CAU"
+        [src] = "contact.photo"
         alt=""
       />
     </div>

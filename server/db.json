@@ -12,7 +12,7 @@
     },
     {
       "id": "2",
-      "name": "Trump",
+      "name": "Donald Trump",
       "company": "Republican Party",
       "email": "trump@gmail.com",
       "title": "Politician",
@@ -69,16 +69,6 @@
       "title": "Politician",
       "groupId": "4",
       "id": "IRQ3tNm"
-    },
-    {
-      "name": "Arvind Kejriwal",
-      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmg07aDX3LhRIq_AmN4HZ9Gg5ycZFgq5Q7xA&usqp=CAU",
-      "email": "ak@gmail.com",
-      "mobile": "9999999999",
-      "company": "Aap Admi Party",
-      "title": "Politician",
-      "groupId": "4",
-      "id": "_BwjFjA"
     }
   ],
   "groups": [

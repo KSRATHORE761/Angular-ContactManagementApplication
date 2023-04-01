@@ -79,7 +79,7 @@
                           <a routerLink="/contacts/edit/:contactId" class="btn btn-success">
                             <i class="fa fa-pen"></i>
                           </a>
-                          <button class="btn btn-danger">
+                          <button class="btn btn-danger" (click)="deleteContact(contact.id)">
                             <i class="fa fa-trash"></i>
                           </button>
                         </div>
